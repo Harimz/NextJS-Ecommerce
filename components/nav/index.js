@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Avatar,
   Box,
@@ -12,8 +12,17 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { GiClover } from "react-icons/gi";
+import SearchInput from "./search-input";
+import Link from "next/link";
+import MobileNav from "./mobile-nav";
 
 const Nav = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const searchHandler = () => {
+    console.log(searchQuery);
+  };
+
   return (
     <Container color="white" maxW="100rem" w="95%">
       <Flex justifyContent="space-between" alignItems="center">
@@ -25,17 +34,28 @@ const Nav = () => {
           </Text>
         </Flex>
 
-        <Flex alignItems="center">
-          <Input width="10rem" />
+        <Flex alignItems="center" display={["none", "flex"]}>
+          <SearchInput
+            onSearch={searchHandler}
+            setSearchQuery={setSearchQuery}
+          />
 
-          <Button size="sm" bgColor="#FCA311">
-            Sign Up
-          </Button>
+          <Flex gap="1rem" ml="10rem">
+            <Link href="/signup" passHref>
+              <Button size="sm" variant="primary">
+                Sign Up
+              </Button>
+            </Link>
 
-          <Button size="sm" bgColor="#FCA311">
-            Register
-          </Button>
+            <Link href="/signin" passHref>
+              <Button size="sm" variant="primary">
+                Register
+              </Button>
+            </Link>
+          </Flex>
         </Flex>
+
+        <MobileNav onSearch={searchHandler} setSearchQuery={setSearchQuery} />
       </Flex>
     </Container>
   );

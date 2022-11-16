@@ -1,7 +1,9 @@
 const colors = {
   primary: {
     100: "#14213D",
-    200: "purple",
+  },
+  secondary: {
+    100: "#06D6A0",
   },
 };
 
