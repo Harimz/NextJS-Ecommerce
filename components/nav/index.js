@@ -49,7 +49,7 @@ const Nav = () => {
 
             <Link href="/signin" passHref>
               <Button size="sm" variant="primary">
-                Register
+                Login
               </Button>
             </Link>
           </Flex>

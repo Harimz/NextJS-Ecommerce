@@ -5,6 +5,9 @@ const colors = {
   secondary: {
     100: "#06D6A0",
   },
+  gray: {
+    100: "#FCFCFC",
+  },
 };
 
 export default colors;
