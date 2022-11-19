@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, Divider, Flex, Input, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
-const AuthForm = ({ children, type }) => {
+const AuthForm = ({ children, type, authHandler }) => {
   return (
     <Box
       bgColor="gray.100"
@@ -12,6 +12,8 @@ const AuthForm = ({ children, type }) => {
       p={["0.5rem", "2rem"]}
       borderRadius="10px"
       boxShadow="1px 2px 3px rgba(0,0,0,0.1)"
+      as="form"
+      onSubmit={authHandler}
     >
       <Text textAlign="center" fontSize="1.5rem" fontWeight="700">
         {type ? "Sign up now" : "Login now"}
